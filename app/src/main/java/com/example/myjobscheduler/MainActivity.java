@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
 
-        btnStart = (Button)findViewById(R.id.btn_start);
-        btnCancel = (Button)findViewById(R.id.btn_cancel);
+        btnStart = findViewById(R.id.btn_start);
+        btnCancel = findViewById(R.id.btn_cancel);
 
         btnStart.setOnClickListener(this);
         btnCancel.setOnClickListener(this);
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btn_start:
                 startJob();
                 break;
@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
-
 
 
     private void startJob() {
@@ -57,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         builder.setRequiresCharging(false);
 
         // 1000 ms = 1 detik
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             builder.setPeriodic(900000); //15 menit
         } else {
             builder.setPeriodic(180000); //3 menit
